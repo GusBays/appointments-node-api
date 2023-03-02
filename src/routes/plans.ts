@@ -1,13 +1,13 @@
 import { Router } from 'express'
+import { container } from 'tsyringe'
+import PlanController from '../controllers/PlanController'
+
+const controller = container.resolve(PlanController);
 
 const router = Router()
 
-router.post('',(req, res) => {
-    return res.json({ hello: "World!"})
-})
+router.post('', controller.store)
 
-router.get('', (req, res) => {
-    return res.json({ hello: "World!"})
-})
+router.get('', controller.index)
 
 module.exports = router

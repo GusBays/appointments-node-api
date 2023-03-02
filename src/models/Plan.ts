@@ -5,14 +5,14 @@ const connection = require('../database/index')
 
 class Plan extends Model<PlanInterface, PlanInput> implements PlanInterface
 {
-    public id?: number
+    public readonly id: number
+
     public name: string
     public price: number
     public appointments_limit: number
     public employees_limit: number
     public active: boolean
-    
-    
+
     public readonly created_at: Date
     public readonly updated_at: Date
 }
@@ -43,7 +43,7 @@ Plan.init({
         type: DataTypes.TINYINT,
         allowNull: false
     }
-}, { 
+}, {
     timestamps: true,
     sequelize: connection
 })
