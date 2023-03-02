@@ -1,8 +1,7 @@
 import { Model } from 'sequelize-typescript'
 import { DataTypes } from 'sequelize'
 import { PlanInterface, PlanInput } from './interfaces/PlanInterface'
-const connection = require('../database/index')
-
+import { sequelize } from '../database/sequelize'
 class Plan extends Model<PlanInterface, PlanInput> implements PlanInterface
 {
     public readonly id: number
@@ -44,8 +43,9 @@ Plan.init({
         allowNull: false
     }
 }, {
+    tableName: 'plans',
     timestamps: true,
-    sequelize: connection
+    sequelize: sequelize
 })
 
 export default Plan
