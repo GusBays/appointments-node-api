@@ -1,6 +1,3 @@
-import { Arrayable } from "vitest"
-import { PlanInterface } from "../../../models/interfaces/PlanInterface"
-
 export abstract class PlanData
 {
     constructor(
@@ -40,7 +37,7 @@ export abstract class PlanData
 
     setActive(active: boolean) { this.active = active };
 
-    toArray(): Arrayable<PlanInterface>
+    toObject(): Object
     {
         return {
             id: this.getId(),
