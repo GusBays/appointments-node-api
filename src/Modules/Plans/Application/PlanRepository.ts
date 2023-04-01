@@ -1,6 +1,5 @@
 import { inject, injectable } from "tsyringe";
 import Plan from "../../../models/Plan";
-import { PlanData } from "../Domain/PlanData";
 import { PlanRepositoryInterface } from "../Domain/PlanRepositoryInterface";
 import { PlanTypeEnum } from "../Domain/PlanTypeEnum";
 
@@ -9,8 +8,8 @@ export class PlanRepository implements PlanRepositoryInterface
 {
     constructor(@inject(PlanTypeEnum.MODEL) private model: Plan) {}
 
-    async create(planData: PlanData): Promise<Plan> 
+    async create(plan: Object): Promise<Plan> 
     {
-        return this.model.save();
+        return Plan.create(plan);
     }
 }
