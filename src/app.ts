@@ -1,5 +1,14 @@
 import express from 'express'
 import bodyParser from 'body-parser'
+import { sequelize } from './database/sequelize'
+
+try {
+  sequelize.authenticate().then(() => {
+    console.log('Connected to database!');
+  })
+} catch (error) {
+  console.log(error);
+}
 
 const app = express()
 app.use(bodyParser.json())
