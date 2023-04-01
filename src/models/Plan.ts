@@ -40,6 +40,7 @@ Plan.init({
     },
     active: {
         type: DataTypes.TINYINT,
+        defaultValue: true,
         allowNull: false
     }
 }, {
