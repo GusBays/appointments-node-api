@@ -1,14 +1,15 @@
+import { Request } from "express";
 import { PlanData } from "./PlanData";
 
 export class PlanRequestAdapter extends PlanData
 {
-    constructor(requestBody) {
+    constructor(request: Request) {
         super(
-            requestBody.name,
-            requestBody.price,
-            requestBody.appointments_limit,
-            requestBody.employees_limit,
-            requestBody.active,
+            request.body.name,
+            request.body.price,
+            request.body.appointments_limit,
+            request.body.employees_limit,
+            request.body.active,
         )
     }
 }
