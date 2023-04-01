@@ -1,4 +1,4 @@
-import { Model } from 'sequelize-typescript'
+import { Model } from 'sequelize'
 import { DataTypes } from 'sequelize'
 import { PlanInterface, PlanInput } from './interfaces/PlanInterface'
 import { sequelize } from '../database/sequelize'
@@ -43,9 +43,9 @@ Plan.init({
         allowNull: false
     }
 }, {
+    sequelize: sequelize,
     tableName: 'plans',
     timestamps: true,
-    sequelize: sequelize
 })
 
 export default Plan
