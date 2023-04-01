@@ -12,6 +12,6 @@ export class PlanService implements PlanServiceInterface
 
     async create(planData: PlanData): Promise<Plan>
     {
-        return await this.repository.create(planData.toObject);
+        return await this.repository.create(planData.toObject());
     }
 }
