@@ -11,9 +11,9 @@ import PlanController from "../../../controllers/PlanController";
 export class PlanBootstrap implements BootstrapInterface
 {
     async handler(): Promise<void> {
-        container.register<Plan>(PlanTypeEnum.MODEL, Plan)
-        container.register<PlanController>(PlanTypeEnum.CONTROLLER, PlanController)
-        container.register<PlanServiceInterface>(PlanTypeEnum.SERVICE, PlanService)
-        container.register<PlanRepositoryInterface>(PlanTypeEnum.REPOSITORY, PlanRepository)
+        container.registerSingleton<Plan>(PlanTypeEnum.MODEL, Plan)
+        container.registerSingleton<PlanController>(PlanTypeEnum.CONTROLLER, PlanController)
+        container.registerSingleton<PlanServiceInterface>(PlanTypeEnum.SERVICE, PlanService)
+        container.registerSingleton<PlanRepositoryInterface>(PlanTypeEnum.REPOSITORY, PlanRepository)
     }
 }
