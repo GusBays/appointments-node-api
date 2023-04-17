@@ -1,6 +1,10 @@
-import Plan from "../../../models/Plan";
+import { QueryInterface } from "sequelize"
+import Plan from "../../../models/Plan"
 
 export interface PlanRepositoryInterface
 {
-    create(plan: Object): Promise<Plan>
+    model: Plan
+    query: QueryInterface
+    tableName: string
+    create(plan: Object): Promise<Object>
 }

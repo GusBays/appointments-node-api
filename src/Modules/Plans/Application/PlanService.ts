@@ -1,17 +1,16 @@
 import { inject, injectable } from "tsyringe";
-import Plan from "../../../models/Plan";
-import { PlanData } from "../Domain/PlanData";
 import { PlanRepositoryInterface } from "../Domain/PlanRepositoryInterface";
 import { PlanServiceInterface } from "../Domain/PlanServiceInterface";
 import { PlanTypeEnum } from "../Domain/PlanTypeEnum";
+import { BaseService } from "../../BaseService";
 
 @injectable()
-export class PlanService implements PlanServiceInterface
+export class PlanService extends BaseService implements PlanServiceInterface
 {
-    constructor(@inject(PlanTypeEnum.REPOSITORY) private repository: PlanRepositoryInterface) {}
-
-    async create(planData: PlanData): Promise<Plan>
-    {
-        return await this.repository.create(planData.toObject());
+    constructor(
+        @inject(PlanTypeEnum.REPOSITORY) 
+        public repository: PlanRepositoryInterface
+    ) {
+        super(repository);
     }
 }
