@@ -13,7 +13,9 @@ class PlanController
 
     async store(req: Request, res: Response)
     {
-        return res.json(this.service.create(new PlanRequestAdapter(req)))
+        return res
+            .status(201)
+            .json(await this.service.create(new PlanRequestAdapter(req)));
     }
 
     async index(req: Request, res: Response)
