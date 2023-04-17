@@ -1,6 +1,6 @@
-import { BaseData } from "../../BaseData";
+import { DataInterface } from "../../../contracts/DataInterface";
 
-export class AppointmentData extends BaseData
+export class AppointmentData implements DataInterface
 {
     private employeeId?: number;
     private customerId?: number
@@ -17,11 +17,6 @@ export class AppointmentData extends BaseData
         createdAt?: Date,
         updatedAt?: Date
     ) {
-        super(shopId, id, createdAt, updatedAt);
-        this.startsAt = startsAt;
-        this.endsAt = endsAt;
-        this.employeeId = employeeId;
-        this.customerId = customerId;
     }
 
     getEmployeeId() { return this.employeeId };
@@ -39,4 +34,9 @@ export class AppointmentData extends BaseData
     setStartsAt(startsAt: Date) { this.startsAt = startsAt };
 
     setEndsAt(endsAt: Date) { this.endsAt = endsAt };
+
+    toObject(): Object 
+    {
+        return {};
+    }
 }

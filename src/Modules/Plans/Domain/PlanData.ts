@@ -1,4 +1,6 @@
-export abstract class PlanData
+import { DataInterface } from "../../../contracts/DataInterface"
+
+export abstract class PlanData implements DataInterface
 {
     constructor(
         private name: string,
