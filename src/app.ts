@@ -1,5 +1,4 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import { sequelize } from './database/sequelize'
 
 try {
@@ -11,8 +10,8 @@ try {
 }
 
 const app = express()
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 require('./bootstrap');
 
