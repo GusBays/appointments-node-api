@@ -1,4 +1,4 @@
-import { Model } from 'sequelize'
+import { Model, NOW } from 'sequelize'
 import { DataTypes } from 'sequelize'
 import { PlanInterface, PlanInput } from './interfaces/PlanInterface'
 import { sequelize } from '../database/sequelize'
@@ -42,6 +42,16 @@ Plan.init({
         type: DataTypes.TINYINT,
         defaultValue: true,
         allowNull: false
+    },
+    created_at: {
+        type: DataTypes.TIME,
+        allowNull: false,
+        defaultValue: NOW
+    },
+    updated_at: {
+        type: DataTypes.TIME,
+        allowNull: false,
+        defaultValue: NOW
     }
 }, {
     sequelize: sequelize,
