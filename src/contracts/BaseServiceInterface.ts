@@ -1,8 +1,9 @@
-import { BaseRepository } from "../Modules/BaseRepository";
+import { BaseRepositoryInterface } from "./BaseRepositoryInterface";
 
 export interface BaseServiceInterface
 {
-    repository: BaseRepository
+    repository: BaseRepositoryInterface
 
     create(data: Object): Promise<Object>
+    index(): Promise<Object>
 }

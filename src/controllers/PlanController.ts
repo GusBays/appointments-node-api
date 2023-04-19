@@ -20,7 +20,9 @@ class PlanController
 
     async index(req: Request, res: Response)
     {
-
+        return res
+            .status(200)
+            .json(await this.service.index());
     }
 }
 

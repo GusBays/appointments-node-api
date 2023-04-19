@@ -7,4 +7,5 @@ export interface PlanRepositoryInterface
     query: QueryInterface
     tableName: string
     create(plan: Object): Promise<Object>
+    getAll(): Promise<Object>
 }

@@ -22,4 +22,9 @@ export class BaseRepository implements BaseRepositoryInterface
 
         return await this.query.insert(this.model, this.tableName, this.model.dataValues);
     }
+
+    async getAll(): Promise<Object>
+    {
+        return await this.query.select(null, this.tableName);
+    }
 }
